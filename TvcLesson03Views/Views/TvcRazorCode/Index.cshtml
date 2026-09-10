@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewData["Title"] = "Cú pháp Razor";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr/>
+@{
+    // Biến, kiểu dữ liệu, hằng .... 
+    var total = 77000;
+    decimal price = 10000.5m;
+    string name = "Chung Trịnh";
+    var greeting = "Xin chào các bạn";
+    var weekday = DateTime.Now.DayOfWeek;
+    var greetingMessage = greeting + " - Hôm nay là " + weekday;
+}
+
+<div class="alert alert-danger">
+    <h2>Cú pháp  Razor</h2>
+    <p>Tài khoản:$ @total </p>
+    <p>Price: $ @price</p>
+    <p>@greeting - @name</p>
+
+    <h6>@greetingMessage</h6>
+</div>
+
+<div class="alert alert-success">
+    <h2>Cấu trúc if</h2>
+    @{
+        int age = 20;
+        if(age >= 18)
+        {
+            <p>Bạn đủ tuổi để tham gia (@age) </p>
+        }
+        else
+        {
+            <p>Bạn chưa đủ tuổi để tham gia (@age)</p>
+        }
+    }
+</div>
+
+<div class="alert alert-light">
+    <h2>Cấu trúc lặp</h2>
+    @{
+        for(int i=0; i<10; i++)
+        {
+            if(i % 2 == 0)
+            {
+                <span class="btn btn-danger">@i</span>
+            }
+            else
+            {
+                <span class="btn btn-success">@i</span>
+            }
+        }
+    }
+    <hr/>
+    @{
+        var students = new List<string> 
+            { "Chung", "Trịnh", "Vinh", "Hùng","Đạt","Dương","Huy" };
+        foreach(var student in students)
+        {
+            <span class="btn btn-primary">@student</span>
+        }
+
+    }
+</div>
