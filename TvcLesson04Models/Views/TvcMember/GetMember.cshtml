@@ -1,0 +1,14 @@
+﻿@model TvcLesson04Models.Models.DataModels.TvcMember;
+@{
+    ViewData["Title"] = "Thông tin thành viên";
+
+    //var member = Model as TvcLesson04Models.Models.DataModels.TvcMember;
+}
+
+<h1>@ViewData["Title"]</h1>
+<p>Mã: @Model.TvcMemberId</p>
+<p>Họ teen: @Model.TvcFullName</p>
+<p>Tài  khoản: @Model.TvcUserName</p>
+<p>email: @Model.TvcEmail</p>
+
+
