@@ -1,21 +1,17 @@
 ﻿@model IEnumerable<TvcLesson04Models.Models.DataModels.TvcMember>
 
 @{
-    ViewData["Title"] = "Danh sách thành viên";
+    ViewData["Title"] = "Index";
 }
 
-<div class="card p-3">
-<h1>@ViewData["Title"]</h1>
+<h1>Index</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Thêm mới</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table table-bordered">
     <thead>
         <tr>
-                <th>
-                   #No.
-                </th>
             <th>
                 @Html.DisplayNameFor(model => model.TvcMemberId)
             </th>
@@ -35,18 +31,11 @@
         </tr>
     </thead>
     <tbody>
-            @{
-                int stt = 0;
-            }
-            @foreach (var item in Model) {
-                stt++;
+@foreach (var item in Model) {
         <tr>
             <td>
-                @stt
+                @Html.DisplayFor(modelItem => item.TvcMemberId)
             </td>
-                    <td>
-                        @item.TvcMemberId
-                    </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TvcUserName)
             </td>
@@ -60,12 +49,11 @@
                 @Html.DisplayFor(modelItem => item.TvcEmail)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { id = item.TvcMemberId }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TvcMemberId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.TvcMemberId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TvcMemberId })
             </td>
         </tr>
-    }
+}
     </tbody>
 </table>
-</div>
